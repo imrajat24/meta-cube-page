@@ -1,0 +1,108 @@
+@import "mixins";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+
+  @include respond(big-desk) {
+    //width < 1200px ?
+    font-size: 75%; // 1rem = 12px; 9/16% = 75%
+  }
+
+  @include respond(tab-land) {
+    //width < 1200px ?
+    font-size: 56.25%; // 1rem = 9px; 9/16% = 56.25%
+  }
+
+  @include respond(tab-pot) {
+    //width < 900px ?
+    font-size: 50%; // 1rem = 8px; 8/16% = 50%
+  }
+
+  @include respond(phone) {
+    //width < 900px ?
+    font-size: 43.75%; // 1rem = 7px; 7/16% = 43.75%
+  }
+}
+
+body {
+  font-family: sans-serif;
+  font-weight: 400;
+}
+
+.row {
+  max-width: 114rem;
+  margin: 0 auto;
+}
+
+.pageBg {
+  background-color: #14141f;
+  color: white;
+  padding: 5rem 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.backImg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.contentDiv {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  &-heading {
+    margin-bottom: 3.5rem;
+    text-align: center;
+    h2,
+    h3 {
+      text-transform: capitalize;
+    }
+    h2 {
+      font-size: 3.6rem;
+      margin-bottom: 1.5rem;
+    }
+    h3 {
+      font-size: 1.6rem;
+    }
+  }
+  &-content {
+    overflow-y: scroll;
+    display: grid;
+    height: 55vh;
+    width: 80vw;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    &_img {
+      img {
+        width: 100%;
+        border-radius: 3%;
+      }
+    }
+  }
+  &-button {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    button {
+      cursor: pointer;
+      padding: 1rem 15rem;
+      border: 0.1rem solid white;
+      border-radius: 2rem;
+      color: white;
+      background-color: transparent;
+    }
+    img {
+      margin-top: 1rem;
+    }
+  }
+}
